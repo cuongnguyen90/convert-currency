@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Money</title>
+	<style>
+		th{
+			width: 120px;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="main" style="text-align: center">
+		<table>
+			<thead>
+				<tr>
+					<th>Ammount</th>
+					<th>From Currency</th>
+					<th>To Currency</th>
+				</tr>
+			</thead>
+			<tbody >
+				<tr>
+					<td>
+						<input type="number" id="money">
+					</td>
+					<td >
+						<select id="f_current">
+							<option value="VND" default>VND</option>
+							<option value="USD">USD</option>
+						</select>
+					</td>
+					<td>
+						<select id="t_current">							
+							<option value="USD" default>USD</option>
+							<option value="VND" >VND</option>
+						</select>
+					</td>
+					<td>
+						<button onClick="Convert(document.getElementById('money').value,document.getElementById('f_current').value,document.getElementById('t_current').value)">Convert</button>
+					</td>
+					<td><p id="result"></p></td>
+				</tr>
+			</tbody>
+		</table>
+
+
+	</div>
+	<script>
+		function Convert(a,b,c){
+			const rate = 25000
+			//console.log(a,b,c);
+			// USD -> VND
+			if(b == "USD" && c == "VND"){
+				result = a*rate
+				document.getElementById('result').innerHTML = result+"VND"
+			//VND-> USD
+			}if( b == "VND" && c == "USD"){
+				result = a/rate
+				document.getElementById('result').innerHTML = result+"$"
+			}
+				
+			
+		}
+	</script>
+</body>
+</html>
